@@ -12,8 +12,13 @@ const findUserById = async (userId) => {
     return await User.findById(userId);
 };
 
+const findUserByEmailWithPassword = async(email) => {
+    return await User.findOne({email}).select("+password")
+};
+
 module.exports = {
     findUserByEmail,
     createUser,
     findUserById,
+    findUserByEmailWithPassword,
 };
