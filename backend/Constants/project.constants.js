@@ -1,0 +1,21 @@
+const PROJECT_STATUS = {
+    ACTIVE: "ACTIVE",
+    ARCHIVED: "ARCHIVED",
+};
+
+const PROJECT_VISIBILITY = {
+    PRIVATE: "PRIVATE",
+    PUBLIC: "PUBLIC",
+};
+
+const PROJECT_MEMBER_ROLE = {
+    OWNER: "OWNER",
+    ADMIN: "ADMIN",
+    MEMBER: "MEMBER",
+};
+
+module.exports = {
+    PROJECT_STATUS,
+    PROJECT_VISIBILITY,
+    PROJECT_MEMBER_ROLE,
+};
