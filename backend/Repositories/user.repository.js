@@ -16,9 +16,19 @@ const findUserByEmailWithPassword = async(email) => {
     return await User.findOne({email}).select("+password")
 };
 
+const updateUserById = async (userId, updateData) => {
+    return await User.findByIdAndUpdate(userId, updateData, { new: true });
+};
+
+const updateUserByEmail = async (email, updateData) => {
+    return await User.findOneAndUpdate({ email }, updateData, { new: true });
+};
+
 module.exports = {
     findUserByEmail,
     createUser,
     findUserById,
     findUserByEmailWithPassword,
+    updateUserById,
+    updateUserByEmail,
 };

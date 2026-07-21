@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const {ROLES} = require("../Constants/roles");
+const { ROLES } = require("../Constants/roles");
 
 const userSchema = new mongoose.Schema(
   {
@@ -92,7 +92,7 @@ const userSchema = new mongoose.Schema(
   {
     timestamps: true,
     versionKey: false,
-  }
+  },
 );
 
 const User = mongoose.model("User", userSchema);
