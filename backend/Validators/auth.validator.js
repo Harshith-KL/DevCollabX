@@ -44,7 +44,51 @@ const loginValidator = [
         .withMessage("Password is required"),
 ];
 
+const forgotPasswordValidator = [
+    body("email")
+        .trim()
+        .notEmpty()
+        .withMessage("Email is required")
+        .isEmail()
+        .withMessage("Please provide a valid email address")
+        .normalizeEmail(),
+];
+
+const resetPasswordValidator = [
+    body("token")
+        .trim()
+        .notEmpty()
+        .withMessage("Reset token is required"),
+
+    body("password")
+        .notEmpty()
+        .withMessage("Password is required")
+        .isLength({ min: 6, max: 20 })
+        .withMessage("Password must be between 6 and 20 characters"),
+];
+
+const verifyEmailValidator = [
+    body("token")
+        .trim()
+        .notEmpty()
+        .withMessage("Verification token is required"),
+];
+
+const resendVerificationValidator = [
+    body("email")
+        .trim()
+        .notEmpty()
+        .withMessage("Email is required")
+        .isEmail()
+        .withMessage("Please provide a valid email address")
+        .normalizeEmail(),
+];
+
 module.exports = {
     registerValidator,
     loginValidator,
+    forgotPasswordValidator,
+    resetPasswordValidator,
+    verifyEmailValidator,
+    resendVerificationValidator,
 };

@@ -35,13 +35,15 @@ const findProjects = async (filter, options = {}) => {
     };
 };
 
-const updateProject = async (projectId, updateData) => {
+const updateProject = async (projectId, updateData, session = null, options = {}) => {
     return Project.findByIdAndUpdate(
         projectId,
         updateData,
         {
             new: true,
             runValidators: true,
+            session,
+            ...options,
         }
     );
 };
